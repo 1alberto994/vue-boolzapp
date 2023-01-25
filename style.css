@@ -1,0 +1,47 @@
+.box{
+    width: 100%;
+    height: 100vh;
+    max-width: 1000px;
+    margin: auto;
+    
+}
+aside{
+    width: 20%;
+    height: 100vh;
+    background-color: lightskyblue;
+}
+main,header,footer{
+    width: 80%;
+    /* height: calc(100%/3)-100vh; */
+    
+}
+header{
+    background-color: lightgrey;
+    height: 20vh;
+}
+main{
+    background-color: white;
+    height:60vh ;
+}
+footer{
+    
+    height:20vh;
+}
+img{
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    
+}
+.utenti{
+    vertical-align: middle;
+}
+ul{
+    list-style: none;
+}
+.sent{
+    background-color: lightgreen;
+}
+.received{
+    background-color: lightgrey;
+}

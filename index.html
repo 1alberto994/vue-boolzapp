@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue boolzapp</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+        
+    </head>
+    <body class="bg-primary">
+        <div id="app">
+            <div class="d-flex flex-column  mt-2 flex-wrap box">
+                <aside>
+                    <div class="d-flex ">
+                        <div>
+                            <ul>
+                                <img :src="avatar" alt="io">
+                                {{name}}
+                            </ul>
+                        </div>
+                        
+                       
+                      
+                    </div>
+                    <div>
+                        <input class="w-100" type="text"placeholder="cerca untente">
+                        <ul>
+                            <li v-for="(element,index) in contacts">
+                                <img class="avatar" :src="element.avatar" alt="">
+                                {{element.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                <header class="bg-light">
+                    <div >
+                        <ul>
+                         <li>
+                             <img src="img/avatar_1.jpg" alt="">
+                             Michele
+                         </li>
+                        </ul>
+ 
+                     </div>
+                </header>
+                <main>
+                    
+                    <div class="container">
+                        <div class="row">
+                          
+                          <div class="col-6 offset-6 "  v-for="(messaggio, index) in contacts">
+                           <span class="sent">
+                            <!-- {{{essaggio.messages.message[index]}} -->
+                           </span>
+                          </div>
+                          <div class="col-6  "  v-for="(messaggio, index) in contacts">
+                            <span class="received">
+                             tutto fatto
+                            </span>
+                           </div>
+                        </div>
+                      </div>
+                </main>
+                <footer class="bg-light">
+                    <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addTodo()">
+                        <!-- <input class="w-90" type="text" v-model="newTodo" required minlength="4" placeholder="Nuova task"> -->
+                        <input class="form-control" type="text" placeholder="Invia Messaggio" aria-label="default input example">
+                        <button class="w-10">
+                            Invia
+                        </button>
+                    </form>
+                </footer>
+    
+            </div>
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <script  src="contacts.js"></script>
+    </body>
+</html>
