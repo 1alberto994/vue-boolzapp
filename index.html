@@ -27,7 +27,7 @@
                     <div>
                         <input class="w-100" type="text"placeholder="cerca untente">
                         <ul>
-                            <li v-for="(element,index) in contacts">
+                            <li @click="(activeContact==index) ? contacts[activeContact].messages :'' " v-for="(element,index) in contacts">
                                 <img class="avatar" :src="element.avatar" alt="">
                                 {{element.name}}
                             </li>
@@ -37,9 +37,9 @@
                 <header class="bg-light">
                     <div >
                         <ul>
-                         <li>
-                             <img src="img/avatar_1.jpg" alt="">
-                             Michele
+                         <li v-for="(element,index) in contacts">
+                             <img :src="element.avatar" alt="">
+                             {{element.name}}
                          </li>
                         </ul>
  
@@ -50,21 +50,23 @@
                     <div class="container">
                         <div class="row">
                           
-                          <div class="col-6 offset-6 "  v-for="(messaggio, index) in contacts">
-                           <span class="sent">
-                            <!-- {{{essaggio.messages.message[index]}} -->
+                          <div class="col-6 offset-6  mt-4 "  v-for="(messaggio, index) in contacts[activeContact].messages">
+                           <span class="sent p-2" >
+                            {{messaggio.message}}
+                            
                            </span>
                           </div>
-                          <div class="col-6  "  v-for="(messaggio, index) in contacts">
-                            <span class="received">
-                             tutto fatto
+                          <div class="col-6  offset-1 mt-4 "  v-for="(messaggio, index) in contacts[activeContact].messages">
+                            <span class="received p-2">
+                             {{messaggio.message}}
                             </span>
                            </div>
                         </div>
                       </div>
                 </main>
                 <footer class="bg-light">
-                    <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addTodo()">
+                    <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addMessage()">  
+                        
                         <!-- <input class="w-90" type="text" v-model="newTodo" required minlength="4" placeholder="Nuova task"> -->
                         <input class="form-control" type="text" placeholder="Invia Messaggio" aria-label="default input example">
                         <button class="w-10">

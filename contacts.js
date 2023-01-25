@@ -3,6 +3,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        newMessage : '',
         name:"Sofia",
         avatar:'img/avatar_io.jpg',
         contacts: [
@@ -89,7 +90,19 @@ const { createApp } = Vue
                     }
                 ],
             },
-        ] 
+        ] ,
+        methods:{
+            addMessage: function () {
+
+                if(this.newMessage != '') {
+                    this.messages.push(this.newMessage);
+                    this.newMessage = '';
+                }
+    
+            },
+        },
+        activeContact:0,
+        
         
       }
     }
