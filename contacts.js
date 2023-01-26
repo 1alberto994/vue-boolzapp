@@ -3,7 +3,8 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        newMessage : '',
+        activeContact:'',
+        activeMessage : 0,
         name:"Sofia",
         avatar:'img/avatar_io.jpg',
         contacts: [
@@ -49,7 +50,7 @@ const { createApp } = Vue
                     {
                         date: '20/03/2020 16:35:00',
                         message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                        status: 'received'
+                        status: 'sent'
                     }
                 ],
             },
@@ -101,7 +102,7 @@ const { createApp } = Vue
     
             },
         },
-        activeContact:0,
+        
         
         
       }
