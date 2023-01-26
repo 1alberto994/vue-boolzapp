@@ -3,6 +3,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        searchUser:"",
         title:"SELEZIONA UNA CHAT",
         activeContact:'',
         activeMessage : "",
@@ -113,12 +114,23 @@ const { createApp } = Vue
         
             
         },
-        addAnswer:function(activeAnswer){
+        addAnswer:function(){
             this.activeContact.messages.push( {
                 date: '10/01/2020 15:50:00',
                 message: "ok",
                 status: 'received'
             });
+        },
+        searchUserName:function(){
+            if(visible==true){
+                this.activeContact[this.visible].push(
+                    visible=this.searchUser
+                )
+                this.searchUser=""
+            }
+            else{
+                visible==false
+            }
         }
        
     },

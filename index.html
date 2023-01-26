@@ -38,7 +38,15 @@
                     </a>
                     
                     <div>
-                        <input class="w-100" type="text"placeholder="cerca untente">
+                        <form class="w-100 mt-3 d-flex" action="" @submit.prevent="searchUserName()">  
+                        
+                            <!-- <input class="w-90" type="text" v-model="newTodo" required minlength="4" placeholder="Nuova task"> -->
+                            <input class="w-100" v-model="searchUser" type="text"placeholder="cerca untente">
+                            <button class="w-10 border-none">
+                                Invia
+                            </button>
+                        </form>
+                       
                         <ul>
                             <li @click="activeContact=element" v-for="(element,index) in contacts">
                                 <img class="avatar" :src="element.avatar" alt="">
@@ -48,13 +56,11 @@
                     </div>
                 </aside>
                 <div v-if="activeContact==null">
-                    <!-- <header>
+                    <header>
                         <div>
-                            <h1>
-                            SELEZIONA UNA CHAT
-                            </h1>
+                            <img src="img/avatar_1.jpg" alt="">
                         </div>
-                    </header> -->
+                    </header>
                 </div>
                 
                 <header class="bg-light">
@@ -93,7 +99,7 @@
                     <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addMessage()">  
                         
                         <!-- <input class="w-90" type="text" v-model="newTodo" required minlength="4" placeholder="Nuova task"> -->
-                        <input class="form-control"  v-model="activeMessage"   type="text" placeholder="Invia Messaggio" aria-label="default input example">
+                        <input class="form-control" v-model="activeMessage"  type="text" placeholder="Invia Messaggio" aria-label="default input example">
                         <button class="w-10 border-none">
                             Invia
                         </button>
