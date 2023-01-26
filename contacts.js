@@ -93,19 +93,33 @@ const { createApp } = Vue
                 ],
             },
         ] ,
-        methods:{
-            addMessage: function () {
-
-                if(this.activeMessage != '') {
-                    contacts.activeContact.push(this.activeMessage);
-                    this.activeMessage = '';
-                }
-    
-            },
-        },
+       
         
         
         
       }
-    }
+    },
+    methods:{
+        addMessage: function () {
+            console.log(this.activeMessage)
+            
+                this.activeContact.messages.push( {
+                    date: '10/01/2020 15:50:00',
+                    message: this.activeMessage,
+                    status: 'sent'
+                });
+                this.activeMessage = '';
+            const answer=setTimeout(activeAnswer,1000)
+        
+            
+        },
+        addAnswer:function(activeAnswer){
+            this.activeContact.messages.push( {
+                date: '10/01/2020 15:50:00',
+                message: "ok",
+                status: 'received'
+            });
+        }
+       
+    },
   }).mount('#app')

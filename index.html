@@ -70,7 +70,7 @@
                 <main>
                    
                     
-                    <div v-else>
+                    <div >
                         
                         
                               
@@ -90,10 +90,10 @@
                     </div>
                 </main>
                 <footer class="bg-light">
-                    <form class="w-100 mt-3 d-flex" action="" v:model="activeMessage" @submit.prevent="addMessage()">  
+                    <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addMessage()">  
                         
                         <!-- <input class="w-90" type="text" v-model="newTodo" required minlength="4" placeholder="Nuova task"> -->
-                        <input class="form-control" type="text" placeholder="Invia Messaggio" aria-label="default input example">
+                        <input class="form-control"  v-model="activeMessage"   type="text" placeholder="Invia Messaggio" aria-label="default input example">
                         <button class="w-10 border-none">
                             Invia
                         </button>
