@@ -7,6 +7,7 @@
         <title>Vue boolzapp</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
     </head>
     <body class="bg-primary">
@@ -14,16 +15,28 @@
             <div class="d-flex flex-column  mt-2 flex-wrap box">
                 <aside>
                     <div class="d-flex ">
-                        <div>
-                            <ul>
+                        <div class="d-flex justify-content-between">
+                            <p>
                                 <img :src="avatar" alt="io">
                                 {{name}}
-                            </ul>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </p>
+                            
                         </div>
                         
                        
                       
                     </div>
+                    <div class="d-flex bg-light ">
+                        <i class="fa-solid fa-bell-slash mt-3"></i>
+                        <p class="notifica mt-3">Nessuna notifica</p>
+                        
+                       
+                    </div>
+                    <a href="">
+                        Aggiungi utente al desktop
+                    </a>
+                    
                     <div>
                         <input class="w-100" type="text"placeholder="cerca untente">
                         <ul>
@@ -35,19 +48,23 @@
                     </div>
                 </aside>
                 <div v-if="activeContact==null">
-                    seleziona una chat
+                    <!-- <header>
+                        <div>
+                            <h1>
+                            SELEZIONA UNA CHAT
+                            </h1>
+                        </div>
+                    </header> -->
                 </div>
                 
                 <header class="bg-light">
-                    <div >
-                        <!-- <ul>
-                         <li v-for="(utente,index) in activeContact.name">
-                             <img :src="utente.avatar" alt="">
-                             {{utente.name}}
-                         </li>
-                        </ul> -->
-                        <img :src="activeContact.avatar" alt="">
-                        {{activeContact.name}}
+                    <div class="d-flex justify-content-between" >
+                        
+                        <div>
+                            <img :src="activeContact.avatar" alt="">
+                            {{activeContact.name}}
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
                      </div>
                 </header> 
                 <main>
@@ -61,6 +78,7 @@
                                <span class=" p-2" :class="(messaggio.status=='sent') ? 'sent':'received'">
                                 {{messaggio.message}}
                                 
+                                
                                </span>
                               </div>
                               <!-- <div class="col-6  offset-1 mt-4 "  v-for="(messaggio, index) in contacts[activeContact].messages">
@@ -72,11 +90,11 @@
                     </div>
                 </main>
                 <footer class="bg-light">
-                    <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addMessage()">  
+                    <form class="w-100 mt-3 d-flex" action="" v:model="activeMessage" @submit.prevent="addMessage()">  
                         
                         <!-- <input class="w-90" type="text" v-model="newTodo" required minlength="4" placeholder="Nuova task"> -->
                         <input class="form-control" type="text" placeholder="Invia Messaggio" aria-label="default input example">
-                        <button class="w-10">
+                        <button class="w-10 border-none">
                             Invia
                         </button>
                     </form>

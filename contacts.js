@@ -3,8 +3,9 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        title:"SELEZIONA UNA CHAT",
         activeContact:'',
-        activeMessage : 0,
+        activeMessage : "",
         name:"Sofia",
         avatar:'img/avatar_io.jpg',
         contacts: [
@@ -95,9 +96,9 @@ const { createApp } = Vue
         methods:{
             addMessage: function () {
 
-                if(this.newMessage != '') {
-                    this.messages.push(this.newMessage);
-                    this.newMessage = '';
+                if(this.activeMessage != '') {
+                    contacts.activeContact.push(this.activeMessage);
+                    this.activeMessage = '';
                 }
     
             },
