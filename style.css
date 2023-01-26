@@ -46,10 +46,15 @@ img{
 ul{
     list-style: none;
 }
+.messaggi.sent{
+    display: flex;
+    align-self: flex-end;
+}
 .sent{
     background-color: lightgreen;
     align-self: flex-end;
     display: flex;
+    text-align: right;
     min-width: 30%;
     max-width: 60%;
 }

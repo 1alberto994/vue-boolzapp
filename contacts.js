@@ -3,7 +3,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        searchUser:"",
+        letters:"",
         title:"SELEZIONA UNA CHAT",
         activeContact:'',
         activeMessage : "",
@@ -121,17 +121,23 @@ const { createApp } = Vue
                 status: 'received'
             });
         },
-        searchUserName:function(){
-            if(visible==true){
-                this.activeContact[this.visible].push(
-                    visible=this.searchUser
-                )
-                this.searchUser=""
-            }
-            else{
-                visible==false
-            }
-        }
+        // searchUserName:function(){
+        //     if(visible==true){
+        //         this.activeContact[this.visible].push(
+        //             visible = this.searchUser
+        //         )
+        //         this.searchUser=""
+        //     }
+        //     else{
+        //         visible==false
+        //     }
+        // }
        
     },
+    computed: {
+        searchUser() {
+          return this.activeContact.filter({
+            name:this.letters})
+        }
+      }
   }).mount('#app')

@@ -38,10 +38,8 @@
                     </a>
                     
                     <div>
-                        <form class="w-100 mt-3 d-flex" action="" @submit.prevent="searchUserName()">  
-                        
-                            <!-- <input class="w-90" type="text" v-model="newTodo" required minlength="4" placeholder="Nuova task"> -->
-                            <input class="w-100" v-model="searchUser" type="text"placeholder="cerca untente">
+                        <form class="w-100 mt-3 d-flex" action="" @submit.prevent="searchUser()">  
+                            <input class="w-100" v-model="letters" type="text"placeholder="cerca untente">
                             <button class="w-10 border-none">
                                 Invia
                             </button>
@@ -55,13 +53,13 @@
                         </ul>
                     </div>
                 </aside>
-                <div v-if="activeContact==null">
+                <!-- <div v-if="activeContact==null">
                     <header>
                         <div>
                             <img src="img/avatar_1.jpg" alt="">
                         </div>
                     </header>
-                </div>
+                </div> -->
                 
                 <header class="bg-light">
                     <div class="d-flex justify-content-between" >
@@ -76,29 +74,19 @@
                 <main>
                    
                     
-                    <div >
+                    <div>       
+                         <div class="d-flex mt-4 messaggi "  v-for="(messaggio, index) in  activeContact.messages">
+                        <span class="  p-2" :class="(messaggio.status=='sent') ? 'sent':'received'">
+                        {{messaggio.message}}
                         
                         
-                              
-                              <div class="d-flex mt-4 "  v-for="(messaggio, index) in  activeContact.messages">
-                               <span class=" p-2" :class="(messaggio.status=='sent') ? 'sent':'received'">
-                                {{messaggio.message}}
-                                
-                                
-                               </span>
-                              </div>
-                              <!-- <div class="col-6  offset-1 mt-4 "  v-for="(messaggio, index) in contacts[activeContact].messages">
-                                <span class=" p-2" :class="(messaggio.status=='received') ? 'received':''">
-                                 {{messaggio.message}}
-                                </span>
-                               </div> -->
+                        </span>
+                        </div>
                             
                     </div>
                 </main>
                 <footer class="bg-light">
-                    <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addMessage()">  
-                        
-                        <!-- <input class="w-90" type="text" v-model="newTodo" required minlength="4" placeholder="Nuova task"> -->
+                    <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addMessage()">
                         <input class="form-control" v-model="activeMessage"  type="text" placeholder="Invia Messaggio" aria-label="default input example">
                         <button class="w-10 border-none">
                             Invia
