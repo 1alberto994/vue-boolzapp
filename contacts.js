@@ -109,7 +109,7 @@ const { createApp } = Vue
                     status: 'sent'
                 });
                 this.activeMessage = '';
-            const answer=setTimeout(activeAnswer,1000)
+            const answer=setTimeout(this.addAnswer,1000)
         
             
         },
