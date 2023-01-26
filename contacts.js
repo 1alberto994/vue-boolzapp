@@ -3,7 +3,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        letters:["ele","u","l","i"],
+        searchTxt:"",
         title:"SELEZIONA UNA CHAT",
         activeContact:'',
         activeMessage : "",
@@ -137,7 +137,7 @@ const { createApp } = Vue
     computed: {
         searchUser() {
             
-            return this.activeContact.filter( contact=> contact.includes(this.letters))
+            return this.contacts.filter( contact=> contact.name.includes(this.searchTxt))
           }
       }
   }).mount('#app')
