@@ -120,24 +120,15 @@ const { createApp } = Vue
                 message: "ok",
                 status: 'received'
             });
-        },
-        // searchUserName:function(){
-        //     if(visible==true){
-        //         this.activeContact[this.visible].push(
-        //             visible = this.searchUser
-        //         )
-        //         this.searchUser=""
-        //     }
-        //     else{
-        //         visible==false
-        //     }
-        // }
-       
+        },       
     },
     computed: {
         searchUser() {
             
             return this.contacts.filter( contact=> contact.name.includes(this.searchTxt))
           }
-      }
+      },
+      mounted(){
+        this.activeContact = this.contacts[0];
+     }
   }).mount('#app')

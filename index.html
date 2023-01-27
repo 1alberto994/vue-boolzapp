@@ -10,18 +10,24 @@
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
          <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
-    <body class="bg-primary">
+    <body class="bg-secondary">
         <div id="app">
-            <div class="d-flex flex-column  mt-2 flex-wrap box">
+            <div class="d-flex  mt-5 flex-wrap box">
                 <aside>
-                    <div class="d-flex ">
-                        <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between ">
+                        <div class="d-flex ">
                             <p>
                                 <img :src="avatar" alt="io">
                                 {{name}}
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                               
                             </p>
+                           
                             
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <i class="fa-solid fa-paperclip"></i> 
+                            <i class="fa-regular fa-message"></i>  
                         </div>
                         
                        
@@ -49,50 +55,47 @@
                             <li @click="activeContact=element" v-for="(element,index) in searchUser">
                                 <img class="avatar" :src="element.avatar" alt="">
                                 {{element.name}}
+                               
                             </li>
                         </ul>
                     </div>
                 </aside>
-                <!-- <div v-if="activeContact==null">
-                    <header>
-                        <div>
-                            <img src="img/avatar_1.jpg" alt="">
-                        </div>
-                    </header>
-                </div> -->
-                
-                <header class="bg-light">
-                    <div class="d-flex justify-content-between" >
-                        
-                        <div>
-                            <img :src="activeContact.avatar" alt="">
-                            {{activeContact.name}}
-                        </div>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                     </div>
-                </header> 
-                <main>
-                   
-                    
-                    <div>       
-                         <div class="d-flex mt-4 messaggi "  v-for="(messaggio, index) in  activeContact.messages">
-                        <span class="  p-2" :class="(messaggio.status=='sent') ? 'sent':'received'">
-                        {{messaggio.message}}
-                        
-                        
-                        </span>
-                        </div>
+                <div class="d-flex flex-column contenitore">
+                    <header class="bg-light">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <img :src="activeContact.avatar" alt="">
+                                {{activeContact.name}}
+                            </div>
+                           <div>
+                            <i class="fa-regular fa-message"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-bars"></i>
+                           </div>
+                         </div>
+                    </header> 
+                    <main>
+                       
+                              
+                            <div class="mt-4 messaggi  "  v-for="(messaggio, index) in  activeContact.messages">
+                                <span class="d-flex   p-2" :class="(messaggio.status=='sent') ? 'sent':'received'">
+                                    {{messaggio.message}}
+                                </span>                    
                             
-                    </div>
-                </main>
-                <footer class="bg-light">
-                    <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addMessage()">
-                        <input class="form-control" v-model="activeMessage"  type="text" placeholder="Invia Messaggio" aria-label="default input example">
-                        <button class="w-10 border-none">
-                            Invia
-                        </button>
-                    </form>
-                </footer>
+                            </div>
+                                
+                        
+                    </main>
+                    <footer class="bg-light">
+                        <form class="w-100 mt-3 d-flex" action="" @submit.prevent="addMessage()">
+                            <input class="form-control" v-model="activeMessage"  type="text" placeholder="Invia Messaggio" aria-label="default input example">
+                            <button class="w-10 border-none">
+                                Invia
+                            </button>
+                        </form>
+                    </footer>
+                </div>
+                 
     
             </div>
         </div>
